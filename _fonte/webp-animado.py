@@ -20,7 +20,7 @@ for k,a in enumerate(arrs):
     i=src_idx[k]
     t=min(max((i-44)/(56-44),0),1)          # 0 até o quadro 44, 1 a partir do 56
     t=t*t*(3-2*t)
-    width=(0.05*(1-t)+0.02*t)*W
+    width=(0.02*(1-t)+0.01*t)*W
     x=np.arange(W,dtype=np.float32)
     d=np.minimum(x, W-1-x)
     r=np.clip(d/width,0,1); r=r*r*(3-2*r)
