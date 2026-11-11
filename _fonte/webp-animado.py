@@ -6,7 +6,9 @@ if files[-1]!=allf[-1]: files.append(allf[-1])
 final=None; fr=[]; prev=None
 arrs=[]
 for f in files:
-    im=Image.open(f).convert('RGBA'); h=round(im.height*w/im.width)
+    im=Image.open(f).convert('RGBA')
+    im=im.crop((0,0,im.width,round(im.height*709/768)))   # mesmo enquadramento da imagem parada (corta o chão vazio)
+    h=round(im.height*w/im.width)
     a=np.array(im.resize((w,h),Image.LANCZOS)).astype(np.int16)
     a[...,3][a[...,3]<16]=0   # só o alfa: a cor fica, para a compressão não puxar preto
     arrs.append(a)

@@ -50,10 +50,11 @@
   .hero{text-align:center}
   .stage{position:relative;width:82%;max-width:310px;margin:6px auto 0;aspect-ratio:420/388}
   .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
-  /* a imagem parada fica por baixo, já decodificada; no fim ela aparece antes de a animação sair (sem piscar) */
+  /* a imagem parada em alta fica por baixo, já decodificada; no fim a animação esmaece por cima dela (sem piscar) */
   .stage .final{opacity:0}
   .stage.end .final{opacity:1}
-  .stage::after{content:"";position:absolute;left:14%;right:14%;bottom:1.5%;height:5%;border-radius:50%;background:radial-gradient(closest-side, rgba(59,29,22,.16), transparent);z-index:-1}
+  .stage .anim{transition:opacity .35s ease}
+  .stage.end .anim{opacity:0}
 
   /* ---------- Bem-vindos escrito pelo saco de confeitar ---------- */
   .piping{display:block;width:100%;max-width:380px;height:auto;margin:-10px auto 0;overflow:visible}
@@ -188,10 +189,9 @@
       <!-- Divi entra pela esquerda, o D se desenha, o Nô entra pela direita e os dois se escoram nele.
            WebP animado com transparência: toca uma vez por carregamento e para na pose final. -->
       <div class="stage" id="stage">
-        <img class="final" id="heroFinal" src="img/hero-final.webp" width="420" height="388"
+        <img class="final" id="heroFinal" src="img/hero-final.webp" width="840" height="775"
              alt="A Divi, mordendo um brigadeiro, e o Nô, de braços cruzados, escorados no D da Divinô">
-        <img id="heroImg" width="420" height="388" alt="" aria-hidden="true">
-        <noscript><img src="img/hero-final.webp" width="420" height="388" alt=""></noscript>
+        <noscript><img src="img/hero-final.webp" width="840" height="775" alt=""></noscript>
       </div>
 
       <!-- Bem-vindos escrito ao vivo -->
@@ -332,21 +332,24 @@
 
   // ---------- hero: toca uma vez a cada carregamento e fica parado na pose final ----------
   (() => {
-    const stage = document.getElementById('stage'), img = document.getElementById('heroImg'), fin = document.getElementById('heroFinal');
-    const end = () => { stage.classList.add('end'); requestAnimationFrame(() => requestAnimationFrame(() => img.remove())); };
+    const stage = document.getElementById('stage'), fin = document.getElementById('heroFinal');
+    // a animação só entra na página depois de carregada (uma <img> vazia mostra borda e ícone quebrado no celular)
+    let img = null;
+    const end = () => { stage.classList.add('end'); if (img) setTimeout(() => img.remove(), 450); };
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return end();
     let done = false;
     // internet lenta: em vez de esperar, mostra direto a pose final
-    const slow = setTimeout(() => { done = true; end(); }, 2500);
+    const slow = setTimeout(() => { done = true; end(); }, 3500);
     const anim = new Image();
+    anim.className = 'anim'; anim.alt = ''; anim.setAttribute('aria-hidden', 'true');
+    anim.width = 560; anim.height = 517;
     anim.onload = () => {
       if (done) return;
       clearTimeout(slow);
-      img.src = anim.src;
-      // o WebP toca uma vez (3,6 s) e para no último quadro; a imagem parada, igual a ele,
-      // só assume quando já está decodificada, por baixo, então a troca não pisca
+      img = anim; stage.appendChild(anim);
+      // o WebP toca uma vez (3,6 s); no fim esmaece em 0,35 s para a imagem parada em alta, já decodificada por baixo
       const ready = fin.decode ? fin.decode().catch(() => {}) : Promise.resolve();
-      setTimeout(() => ready.then(end), 4200);
+      setTimeout(() => ready.then(end), 3700);
     };
     anim.onerror = () => { clearTimeout(slow); end(); };
     anim.src = 'img/hero-animacao.webp';
