@@ -14,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600;800&family=Fredoka:wght@400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
   :root{
     --bordo:#5C1324; --vinho:#7B1E33; --vinho-fechado:#4A0F1D; --cacau:#3B1D16; --cacau-soft:#6B4A40;
@@ -59,6 +60,8 @@
   /* ---------- Bem-vindos escrito pelo saco de confeitar ---------- */
   .piping{display:block;width:100%;max-width:380px;height:auto;margin:-10px auto 0;overflow:visible}
   .piping path.s{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  /* com JS, os traços ficam escondidos até o script começar a escrever (senão o texto pronto pisca antes) */
+  .js .piping:not(.ready) path.s{visibility:hidden}
   .piping .shadow path{stroke:#2E0710;stroke-width:7.5;opacity:.45}
   .piping .icing path{stroke:var(--bordo);stroke-width:6.5}
   .piping .gloss path{stroke:#FFFFFF;stroke-width:1.6;opacity:.45}
@@ -439,8 +442,9 @@
     const strokes = layers[1].map((p, i) => ({ i, len: p.getTotalLength(), el: p }));
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const setDash = (i, drawn) => layers.forEach(l => { const p = l[i], L = strokes[i].len; p.style.strokeDasharray = L + ' ' + (L + 2); p.style.strokeDashoffset = L - drawn; });
-    if (reduce) { svg.classList.add('done'); return; }
+    if (reduce) { svg.classList.add('ready', 'done'); return; }
     strokes.forEach(s => setDash(s.i, 0));
+    svg.classList.add('ready');
     const SPEED = strokes.reduce((a, s) => a + s.len, 0) / 2.3;
     const HOP = 0.12;
     const START = 2450;         // começa quando a Divi e o Nô estão chegando no D
