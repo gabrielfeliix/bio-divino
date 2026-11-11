@@ -8,7 +8,7 @@ arrs=[]
 for f in files:
     im=Image.open(f).convert('RGBA'); h=round(im.height*w/im.width)
     a=np.array(im.resize((w,h),Image.LANCZOS)).astype(np.int16)
-    a[a[...,3]<16]=0
+    a[...,3][a[...,3]<16]=0   # só o alfa: a cor fica, para a compressão não puxar preto
     arrs.append(a)
 # degradê nas laterais enquanto a Divi e o Nô entram (some quando a pose fecha)
 # largura em fração da imagem: larga na entrada, estreita no fim, sem tocar a pose final (a 22/768 da borda)
@@ -34,6 +34,6 @@ for i in range(1,len(arrs)):
     arrs[i][d]=arrs[i-1][d]
 fr=[Image.fromarray(a.clip(0,255).astype(np.uint8)) for a in arrs]
 dur=[round(1000*step/24)]*len(fr)
-fr[0].save(out,save_all=True,append_images=fr[1:],duration=dur,loop=1,quality=q,method=4,minimize_size=True,allow_mixed=True)
-fr[-1].save(out.replace('.webp','-final.webp'),quality=90,method=6)
+fr[0].save(out,save_all=True,append_images=fr[1:],duration=dur,loop=1,quality=q,method=4,minimize_size=True,allow_mixed=True,exact=True)
+fr[-1].save(out.replace(".webp","-final.webp"),quality=90,method=6,exact=True)
 print(out,len(fr),os.path.getsize(out)//1024,'KB')
