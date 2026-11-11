@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catálogo de Natal | Divinô</title>
+<meta name="description" content="Catálogo de Natal da Divinô: doces da temporada para a ceia e para presentear. Em breve.">
+<meta name="theme-color" content="#4A0F1D">
+<meta property="og:title" content="Catálogo de Natal | Divinô">
+<meta property="og:description" content="Doces da temporada para a ceia e para presentear. Em breve.">
+<meta property="og:image" content="img/hero-final.png">
+<link rel="icon" href="img/perfil.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600;800&family=Fredoka:wght@400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordo:#5C1324; --vinho:#7B1E33; --vinho-fechado:#4A0F1D; --cacau:#3B1D16;
+    --creme:#F4E8D4; --creme-claro:#FCF6EC; --caramelo:#C98F4A; --caramelo-claro:#E6BF86;
+    --pinho:#2F4B3B; --cereja:#B3303D;
+    --logo:'Sansita Swashed', Georgia, serif; --script:'Yellowtail', cursive; --sans:'Fredoka', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;background:var(--vinho-fechado)}
+  body{font-family:var(--sans);color:var(--creme);overflow-x:hidden;line-height:1.45;min-height:100vh;background:transparent}
+  body::before{
+    content:"";position:fixed;left:0;right:0;top:-40vh;bottom:-40vh;z-index:-1;pointer-events:none;
+    background-color:var(--vinho-fechado);
+    background-image:
+      repeating-linear-gradient(180deg, rgba(244,232,212,.03) 0 1px, transparent 1px 7px),
+      radial-gradient(90% 45% at 50% 42%, rgba(123,30,51,.85) 0%, transparent 70%);
+  }
+  html,body{scrollbar-width:none;-ms-overflow-style:none}
+  html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+  *{-webkit-tap-highlight-color:transparent}
+  a,button{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  a{color:inherit;text-decoration:none}
+  a:focus:not(:focus-visible){outline:none}
+  a:focus-visible{outline:3px solid var(--caramelo);outline-offset:3px}
+  img{-webkit-user-drag:none}
+  .page{position:relative;width:100%;max-width:460px;margin:0 auto;padding:0 16px 40px;min-height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+  /* fio de luzinhas */
+  .lights{display:block;width:calc(100% + 32px);margin:0 -16px;height:48px}
+  .lights .bulb{animation:blink 1.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+  .lights .bulb:nth-of-type(3n+1){animation-delay:.6s}
+  .lights .bulb:nth-of-type(3n+2){animation-delay:1.2s}
+  @keyframes blink{50%{opacity:.35;transform:scale(.85)}}
+
+  .back{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;margin-top:4px;padding:8px 14px 8px 10px;border-radius:999px;background:rgba(244,232,212,.1);border:1px solid rgba(244,232,212,.18);font-size:.9rem;font-weight:500}
+  .back svg{width:18px;height:18px}
+
+  .scene{position:relative;margin-top:18px;height:250px}
+  .scene .divi,.scene .no{position:absolute;bottom:0;height:230px;filter:drop-shadow(0 12px 14px rgba(0,0,0,.35))}
+  .scene .divi{left:-6px;animation:in-l .9s .1s cubic-bezier(.3,1.4,.5,1) both}
+  .scene .no{right:-6px;animation:in-r .9s .25s cubic-bezier(.3,1.4,.5,1) both}
+  @keyframes in-l{from{opacity:0;transform:translateX(-70px) rotate(-6deg)}}
+  @keyframes in-r{from{opacity:0;transform:translateX(70px) rotate(6deg)}}
+  .scene .gift{position:absolute;left:50%;bottom:6px;width:96px;margin-left:-48px;filter:drop-shadow(0 10px 10px rgba(0,0,0,.35));animation:pop .7s .7s cubic-bezier(.3,1.6,.5,1) both, bob 3.2s 1.6s ease-in-out infinite}
+  @keyframes pop{from{opacity:0;transform:scale(.3) translateY(30px)}}
+  @keyframes bob{50%{transform:translateY(-8px) rotate(3deg)}}
+  .scene .floor{position:absolute;left:8%;right:8%;bottom:-6px;height:18px;border-radius:50%;background:radial-gradient(closest-side, rgba(0,0,0,.35), transparent)}
+
+  .card{position:relative;margin-top:26px;text-align:center;padding:26px 20px 24px;border-radius:28px;background:var(--creme);color:var(--bordo);box-shadow:0 24px 40px -22px rgba(0,0,0,.6);animation:up .7s .5s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}}
+  .card .tag{display:inline-block;padding:4px 12px;border-radius:999px;background:var(--pinho);color:var(--creme);font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+  .card h1{font-family:var(--logo);font-weight:800;font-size:2rem;line-height:1.05;margin-top:12px}
+  .soon{font-family:var(--script);font-size:3.6rem;line-height:1;color:var(--cereja);margin-top:10px;white-space:nowrap}
+  .soon .d{display:inline-block;animation:dot 1.4s ease-in-out infinite}
+  .soon .d:nth-child(2){animation-delay:.2s}
+  .soon .d:nth-child(3){animation-delay:.4s}
+  .soon .d:nth-child(4){animation-delay:.6s}
+  @keyframes dot{0%,60%,100%{transform:none;opacity:1}30%{transform:translateY(-10px);opacity:.5}}
+  .card p{margin-top:12px;color:var(--cacau);font-size:.98rem}
+  .card .cta{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:12px 18px;border-radius:999px;background:var(--bordo);color:var(--creme);font-weight:600;box-shadow:0 4px 0 rgba(30,4,10,.4);transition:transform .2s}
+  .card .cta:hover{transform:translateY(-2px)}
+  .card .cta svg{width:18px;height:18px}
+  .card .corner{position:absolute;width:62px;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+  .card .c1{left:-14px;top:-22px;transform:rotate(-14deg)}
+  .card .c2{right:-12px;top:-26px;transform:rotate(12deg)}
+
+  .peek{display:flex;justify-content:center;gap:10px;margin-top:22px;animation:up .7s .8s both}
+  .peek span{width:58px;height:58px;border-radius:16px;background:rgba(244,232,212,.08);border:1px dashed rgba(244,232,212,.25);display:grid;place-items:center}
+  .peek img{width:40px;height:40px;object-fit:contain;filter:blur(1.5px) saturate(.8);opacity:.75}
+  .peek-t{text-align:center;font-size:.82rem;opacity:.7;margin-top:8px}
+
+  /* neve de estrelinhas */
+  .flakes{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .flakes i{position:absolute;top:-20px;width:6px;height:6px;border-radius:50%;background:var(--creme);opacity:.5;animation:fall linear infinite}
+  @keyframes fall{to{transform:translate3d(var(--x,0),110vh,0)}}
+  main{position:relative;z-index:1}
+
+  footer{text-align:center;margin-top:auto;padding-top:30px;font-size:.85rem;opacity:.75}
+  footer .script{font-family:var(--script);font-size:1.4rem;display:block;opacity:1;color:var(--caramelo-claro)}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition:none!important}
+    .flakes{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="flakes" id="flakes" aria-hidden="true"></div>
+  <main class="page">
+    <svg class="lights" viewBox="0 0 400 48" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 6 Q50 34 100 12 T200 12 T300 12 T400 10" stroke="#2A0812" stroke-width="2" fill="none"/>
+      <g>
+        <circle class="bulb" cx="30" cy="25" r="5" fill="#E6BF86"/><circle class="bulb" cx="75" cy="24" r="5" fill="#B3303D"/>
+        <circle class="bulb" cx="125" cy="22" r="5" fill="#F4E8D4"/><circle class="bulb" cx="175" cy="22" r="5" fill="#9AA27E"/>
+        <circle class="bulb" cx="225" cy="22" r="5" fill="#E6BF86"/><circle class="bulb" cx="275" cy="22" r="5" fill="#B3303D"/>
+        <circle class="bulb" cx="325" cy="22" r="5" fill="#F4E8D4"/><circle class="bulb" cx="372" cy="20" r="5" fill="#9AA27E"/>
+      </g>
+    </svg>
+
+    <a class="back" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Voltar</a>
+
+    <div class="scene" aria-hidden="true">
+      <span class="floor"></span>
+      <img class="divi" src="img/divi-natal.webp" alt="">
+      <img class="no" src="img/no-natal.webp" alt="">
+      <img class="gift" src="img/presente-natal.webp" alt="">
+    </div>
+
+    <section class="card">
+      <img class="corner c1" src="img/bengala.webp" alt="">
+      <img class="corner c2" src="img/estrela-biscoito.webp" alt="">
+      <span class="tag">Doces da temporada</span>
+      <h1>Catálogo de Natal</h1>
+      <div class="soon" aria-label="Em breve">Em breve<span class="d">.</span><span class="d">.</span><span class="d">.</span></div>
+      <p>A Divi e o Nô estão na cozinha preparando os doces de Natal. Quer garantir os seus? Chama a gente no direct.</p>
+      <a class="cta" href="https://ig.me/m/divinooficial_" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C6.5 3 3 6.8 3 11.4c0 2.5 1.1 4.6 3 6.1V21l3.1-1.7c.9.2 1.9.4 2.9.4 5.5 0 9-3.8 9-8.3S17.5 3 12 3z"/></svg>
+        Quero ser avisado
+      </a>
+    </section>
+
+    <div class="peek" aria-hidden="true">
+      <span><img src="img/brigadeiro.webp" alt=""></span>
+      <span><img src="img/bola.webp" alt=""></span>
+      <span><img src="img/presente-laco.webp" alt=""></span>
+      <span><img src="img/ramo.webp" alt=""></span>
+    </div>
+    <p class="peek-t">Uma espiadinha no que vem por aí</p>
+
+    <footer>
+      <span class="script">um docinho resolve mais do que parece</span>
+      Divinô · Parnamirim e Natal, RN
+    </footer>
+  </main>
+<script>
+  // neve de estrelinhas leve (poucas, só com CSS)
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const box = document.getElementById('flakes');
+    for (let i = 0; i < 22; i++) {
+      const f = document.createElement('i'), s = 3 + Math.random() * 5;
+      f.style.cssText = `left:${Math.random() * 100}%;width:${s}px;height:${s}px;opacity:${.25 + Math.random() * .45};animation-duration:${7 + Math.random() * 8}s;animation-delay:${-Math.random() * 12}s;--x:${(Math.random() * 60 - 30).toFixed(0)}px`;
+      box.appendChild(f);
+    }
+  }
+</script>
+</body>
+</html>

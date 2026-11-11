@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Divinô | Doces artesanais</title>
+<meta name="description" content="Um docinho resolve mais do que parece. Brigadeiros e doces artesanais em Parnamirim e Natal, RN.">
+<meta name="theme-color" content="#F4E8D4">
+<meta property="og:title" content="Divinô | Doces artesanais">
+<meta property="og:description" content="Um docinho resolve mais do que parece. Brigadeiros e doces artesanais em Parnamirim e Natal, RN.">
+<meta property="og:image" content="img/hero-final.png">
+<link rel="icon" href="img/perfil.webp">
+<link rel="preload" as="image" href="img/hero-animacao.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600;800&family=Fredoka:wght@400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordo:#5C1324; --vinho:#7B1E33; --vinho-fechado:#4A0F1D; --cacau:#3B1D16; --cacau-soft:#6B4A40;
+    --creme:#F4E8D4; --creme-claro:#FCF6EC; --bege:#E3CFAE; --kraft:#C9A47A;
+    --caramelo:#C98F4A; --caramelo-claro:#E6BF86; --rosa:#E9C9C3; --salvia:#9AA27E; --pinho:#2F4B3B; --cereja:#B3303D;
+    --logo:'Sansita Swashed', Georgia, serif;
+    --script:'Yellowtail', cursive;
+    --sans:'Fredoka', system-ui, sans-serif;
+    --ig:'https://ig.me/m/divinooficial_';
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  /* fundo numa camada fixa maior que a tela: no "bounce" do celular ele não se desprende */
+  html{background-color:var(--creme);background-image:repeating-linear-gradient(180deg, rgba(92,19,36,.035) 0 1px, transparent 1px 7px)}
+  body{font-family:var(--sans);color:var(--cacau);overflow-x:hidden;line-height:1.45;min-height:100vh;background:transparent}
+  body::before{
+    content:"";position:fixed;left:0;right:0;top:-40vh;bottom:-40vh;z-index:-1;pointer-events:none;
+    background-color:var(--creme);
+    background-image:
+      repeating-linear-gradient(180deg, rgba(92,19,36,.035) 0 1px, transparent 1px 7px),
+      radial-gradient(120% 40% at 50% 26%, var(--creme-claro) 0%, transparent 62%),
+      linear-gradient(180deg, var(--creme) 25%, #EFDCC4 78%);
+  }
+  html,body{scrollbar-width:none;-ms-overflow-style:none}
+  html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
+  *{-webkit-tap-highlight-color:transparent}
+  a,button{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  a:focus:not(:focus-visible),button:focus:not(:focus-visible){outline:none}
+  ::selection{background:rgba(92,19,36,.16)}
+  img{-webkit-user-drag:none}
+  .page{position:relative;z-index:1;width:100%;max-width:460px;margin:0 auto;padding:10px 16px 40px}
+
+  /* ---------- HERO: Divi, D e Nô (toca uma vez a cada carregamento) ---------- */
+  .hero{text-align:center}
+  /* palco de ponta a ponta no celular: a beira do vídeo coincide com a beira da tela */
+  .stage{position:relative;width:calc(100% + 32px);margin:0 -16px;aspect-ratio:420/388}
+  .stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+  .stage::after{content:"";position:absolute;left:14%;right:14%;bottom:1.5%;height:5%;border-radius:50%;background:radial-gradient(closest-side, rgba(59,29,22,.16), transparent);z-index:-1}
+
+  /* ---------- Bem-vindos escrito pelo saco de confeitar ---------- */
+  .piping{display:block;width:100%;max-width:380px;height:auto;margin:-10px auto 0;overflow:visible}
+  .piping path.s{fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .piping .shadow path{stroke:#2E0710;stroke-width:7.5;opacity:.45}
+  .piping .icing path{stroke:var(--bordo);stroke-width:6.5}
+  .piping .gloss path{stroke:#FFFFFF;stroke-width:1.6;opacity:.45}
+  .bag{opacity:0;transition:opacity .25s}
+  .bag.on{opacity:1}
+  .bag.off{opacity:0;transition:opacity .45s, transform .5s ease-in}
+  .sparkle{opacity:0;transform-box:fill-box;transform-origin:center}
+  .piping.done .sparkle{animation:sparkle .9s ease-out forwards}
+  .piping.done .sparkle:nth-of-type(2){animation-delay:.15s}
+  .piping.done .sparkle:nth-of-type(3){animation-delay:.3s}
+  @keyframes sparkle{0%{opacity:0;transform:scale(0) rotate(0)}50%{opacity:1;transform:scale(1) rotate(45deg)}100%{opacity:0;transform:scale(.4) rotate(90deg)}}
+
+  .lead{font-family:var(--script);font-size:1.75rem;color:var(--vinho);line-height:1.05;margin-top:-4px}
+  .who{margin-top:8px;color:var(--cacau-soft);font-size:.95rem}
+  .who b{color:var(--bordo);font-weight:600}
+  .reveal{opacity:0;transform:translateY(10px);animation:up .6s cubic-bezier(.2,.8,.2,1) forwards}
+  @keyframes up{to{opacity:1;transform:none}}
+  .chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--creme-claro);border:1px solid rgba(92,19,36,.16);font-size:.85rem;font-weight:500}
+  .chip svg{width:16px;height:16px}
+
+  /* ---------- LINKS ---------- */
+  .links{display:grid;gap:14px;margin-top:26px}
+  .links > *{opacity:0;transform:translateY(14px);animation:up .6s cubic-bezier(.2,.8,.2,1) forwards}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--caramelo);outline-offset:3px}
+
+  .order{position:relative;display:block;border-radius:28px;overflow:hidden;min-height:220px;color:var(--creme);isolation:isolate;background:var(--bordo);box-shadow:0 18px 34px -18px rgba(92,19,36,.85);transition:transform .25s ease}
+  .order::before{content:"";position:absolute;inset:0;z-index:-2;background:
+    radial-gradient(80% 90% at 100% 100%, var(--vinho) 0%, transparent 60%),
+    repeating-linear-gradient(135deg, rgba(244,232,212,.045) 0 2px, transparent 2px 12px)}
+  .order .pic{position:absolute;z-index:-1;pointer-events:none;filter:drop-shadow(0 10px 12px rgba(0,0,0,.28))}
+  .order .p1{right:-14px;bottom:-12px;width:150px;transform:rotate(-8deg);transition:transform .5s ease}
+  .order .p2{right:96px;bottom:-22px;width:88px;transform:rotate(14deg);transition:transform .5s ease}
+  .order .halo{position:absolute;right:30px;top:22px;width:92px;height:22px;border:5px solid var(--caramelo);border-radius:50%;transform:rotate(-10deg);opacity:.9;z-index:-1;animation:halo 4s 3.6s ease-in-out infinite}
+  @keyframes halo{50%{transform:rotate(-10deg) translateY(-5px)}}
+  .order .in{padding:24px 20px;max-width:72%}
+  .order .script{font-family:var(--script);font-size:2.55rem;line-height:.95;display:block}
+  .order p{font-size:.95rem;margin-top:8px;opacity:.92}
+  .btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:11px 16px;border-radius:999px;background:var(--creme);color:var(--bordo);font-weight:700;font-size:.95rem;box-shadow:0 4px 0 rgba(30,4,10,.4);white-space:nowrap}
+  .btn svg{width:18px;height:18px}
+  .order:hover,.order:focus-visible{transform:translateY(-3px)}
+  .order:hover .p1{transform:rotate(-2deg) scale(1.05)}
+  .order:hover .p2{transform:rotate(22deg) translateY(-4px)}
+
+  .xmas{position:relative;display:flex;align-items:center;gap:14px;padding:18px 18px 18px 14px;border-radius:22px;background:var(--pinho);color:var(--creme);overflow:hidden;isolation:isolate;transition:transform .25s ease}
+  .xmas .lights{position:absolute;left:0;right:0;top:0;height:26px;z-index:-1}
+  .xmas .lights circle{animation:blink 1.6s ease-in-out infinite}
+  .xmas .lights circle:nth-child(3n+1){animation-delay:.5s}
+  .xmas .lights circle:nth-child(3n+2){animation-delay:1s}
+  @keyframes blink{50%{opacity:.35}}
+  .xmas .ico{flex:none;width:70px;height:70px;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3));transform-origin:50% 90%;margin-top:8px}
+  .xmas:hover .ico{animation:wobble .7s ease}
+  @keyframes wobble{25%{transform:rotate(-9deg)}60%{transform:rotate(7deg)}100%{transform:none}}
+  .xmas h2{font-family:var(--logo);font-weight:800;font-size:1.25rem;letter-spacing:-.005em;line-height:1.1;margin-top:6px}
+  .xmas p{font-size:.9rem;opacity:.85;margin-top:2px}
+  .xmas .soon{display:inline-block;margin-top:6px;padding:3px 9px;border-radius:999px;background:var(--cereja);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .xmas .go{margin-left:auto;flex:none;width:40px;height:40px;border-radius:50%;background:var(--creme);display:grid;place-items:center;margin-top:8px}
+  .xmas .go svg{width:18px;height:18px}
+  .xmas:hover{transform:translateY(-2px)}
+
+  .insta{display:flex;align-items:center;gap:14px;padding:14px;border-radius:22px;background:var(--creme-claro);border:1.5px dashed rgba(201,143,74,.75);transition:transform .25s ease}
+  .insta .grid{flex:none;display:grid;grid-template-columns:1fr 1fr;gap:3px;width:78px;height:78px;border-radius:14px;overflow:hidden}
+  .insta .grid span{display:grid;place-items:center}
+  .insta .grid img{width:82%;height:82%;object-fit:contain}
+  .insta h2{font-size:1.05rem;font-weight:700;color:var(--bordo)}
+  .insta p{font-size:.88rem;color:var(--cacau-soft)}
+  .insta .ig{margin-left:auto;flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#F9CE34,#EE2A7B 55%,#6228D7)}
+  .insta .ig svg{width:20px;height:20px}
+  .insta:hover{transform:translateY(-2px)}
+
+  /* ---------- VITRINE ---------- */
+  .showcase{margin-top:34px}
+  .showcase header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0 2px}
+  .showcase h2{font-family:var(--script);font-weight:400;font-size:2.5rem;color:var(--bordo);line-height:1}
+  .controls{display:flex;gap:6px;align-items:center}
+  .round{width:40px;height:40px;border-radius:50%;border:0;background:var(--creme-claro);color:var(--bordo);display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 12px -6px rgba(59,29,22,.5);transition:transform .15s ease, opacity .2s}
+  .round:active{transform:scale(.92)}
+  .round:disabled{opacity:.35;cursor:default}
+  .round svg{width:18px;height:18px}
+  .all{border:0;cursor:pointer;font:600 .82rem var(--sans);color:var(--creme);background:var(--bordo);padding:11px 14px;border-radius:999px}
+  .hint{font-size:.85rem;color:var(--cacau-soft);margin:4px 2px 0}
+
+  .shelf{
+    display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+    margin-top:12px;padding:10px;border-radius:28px;scroll-padding:0 10px;
+    background:rgba(252,246,236,.6);border:1.5px solid rgba(252,246,236,.95);
+    box-shadow:inset 0 0 0 1px rgba(92,19,36,.06);
+    scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none;
+    touch-action:pan-x pan-y;
+  }
+  .shelf::-webkit-scrollbar{display:none}
+  .shelf.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto}
+  .shelf.dragging a{pointer-events:none}
+  .treat{flex:none;width:70%;max-width:260px;scroll-snap-align:start;background:var(--creme-claro);border-radius:20px;padding:8px 8px 12px;box-shadow:0 12px 22px -16px rgba(59,29,22,.55);margin:0}
+  .treat:last-child{scroll-snap-align:end}
+  .treat .art{position:relative;aspect-ratio:1/1;border-radius:14px;display:grid;place-items:center;overflow:hidden;background:var(--c, var(--rosa))}
+  .treat .art::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg, rgba(255,255,255,.12) 0 2px, transparent 2px 12px)}
+  .treat .art img{position:relative;width:64%;height:64%;object-fit:contain;filter:drop-shadow(0 10px 10px rgba(59,29,22,.25));pointer-events:none;transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+  .treat:hover .art img{transform:rotate(-6deg) scale(1.06)}
+  .treat .row{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:10px 4px 0}
+  .treat b{font-size:.98rem;font-weight:600;line-height:1.2;color:var(--bordo)}
+  .treat small{font-size:.8rem;color:var(--cacau-soft);line-height:1.3}
+  .treat a{margin-top:2px;font-size:.8rem;font-weight:600;color:var(--creme);background:var(--bordo);padding:8px 12px;border-radius:999px}
+  .treat a:hover{background:var(--vinho)}
+  .shelf.grid{display:grid;grid-template-columns:1fr 1fr;overflow:visible;cursor:default;scroll-snap-type:none}
+  .shelf.grid .treat{width:auto;max-width:none;animation:up .45s cubic-bezier(.2,.8,.2,1) both}
+  .shelf.grid .treat small{display:none}
+  .dots{display:flex;justify-content:center;gap:4px;margin-top:10px}
+  .dots button{width:22px;height:22px;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+  .dots button::after{content:"";width:8px;height:8px;border-radius:50%;background:rgba(59,29,22,.2);transition:background .2s, transform .2s}
+  .dots button.on::after{background:var(--caramelo);transform:scale(1.35)}
+  .showcase.is-grid .dots,.showcase.is-grid .round{display:none}
+
+  footer{text-align:center;margin-top:34px;color:var(--cacau-soft);font-size:.85rem}
+  footer .word{display:block;width:150px;margin:0 auto 4px;color:var(--bordo)}
+  footer .script{font-family:var(--script);font-size:1.5rem;color:var(--vinho);display:block;line-height:1.1;margin-bottom:2px}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition:none!important}
+    .bag{display:none}
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <!-- Divi entra pela esquerda, o D se desenha, o Nô entra pela direita e os dois se escoram nele.
+           WebP animado com transparência: toca uma vez por carregamento e para na pose final. -->
+      <div class="stage">
+        <img id="heroImg" width="420" height="388"
+             alt="A Divi, mordendo um brigadeiro, e o Nô, de braços cruzados, escorados no D da Divinô">
+        <noscript><img src="img/hero-final.webp" width="420" height="388" alt=""></noscript>
+      </div>
+
+      <!-- Bem-vindos escrito ao vivo -->
+      <svg class="piping" id="piping" viewBox="-3 0 406 132" role="img" aria-labelledby="t-bv">
+        <title id="t-bv">Bem-vindos</title>
+        <g class="shadow" transform="translate(0 1.4)">
+          <path class="s" d="M21.7 69.1C21.3 68.8 20.1 68.3 19.4 67.4C18.7 66.5 17.9 64.9 17.4 63.7C17.0 62.6 16.8 61.6 16.7 60.6C16.7 59.5 16.8 58.4 17.2 57.4C17.5 56.3 18.0 55.3 18.6 54.3C19.2 53.3 19.9 52.5 20.9 51.5C21.9 50.6 23.2 49.5 24.6 48.6C26.1 47.6 27.8 46.6 29.7 45.6C31.6 44.6 34.0 43.6 36.0 42.8C38.0 42.0 39.6 41.4 41.7 40.8C43.7 40.3 46.1 39.7 48.4 39.3C50.7 38.9 53.2 38.6 55.3 38.4C57.5 38.2 59.3 38.1 61.3 38.1C63.2 38.1 65.4 38.2 67.1 38.4C68.8 38.6 70.3 38.9 71.7 39.5C73.1 40.0 74.4 40.6 75.5 41.5C76.6 42.3 77.5 43.3 78.0 44.4C78.5 45.5 78.8 46.9 78.7 48.1C78.6 49.3 78.1 50.6 77.4 51.7C76.7 52.9 75.6 53.9 74.4 54.8C73.3 55.8 72.0 56.5 70.5 57.2C68.9 58.0 68.5 58.4 65.0 59.2C61.5 60.1 50.0 60.2 49.4 62.4C48.7 64.5 58.6 70.1 61.1 72.3C63.5 74.6 63.2 74.7 64.1 76.0C64.9 77.3 65.6 78.7 66.1 80.1C66.5 81.5 66.8 83.0 66.8 84.4C66.8 85.9 66.5 87.4 66.0 88.7C65.5 90.1 64.8 91.3 63.8 92.6C62.7 93.8 60.9 95.3 59.7 96.1C58.4 97.0 57.5 97.3 56.4 97.7C55.2 98.1 54.0 98.4 52.8 98.5C51.5 98.7 50.3 98.7 49.1 98.6C47.9 98.6 46.7 98.4 45.6 98.0C44.4 97.7 43.4 97.2 42.4 96.6C41.4 96.0 40.7 95.6 39.7 94.5C38.7 93.3 38.4 89.3 36.3 89.6C34.3 89.8 29.0 95.3 27.3 95.9C25.6 96.6 25.4 96.3 26.2 93.4C27.1 90.6 29.4 84.6 32.2 78.7C35.1 72.7 41.2 61.8 43.5 57.7C45.9 53.6 45.5 55.1 46.5 54.1C47.5 53.1 48.2 52.6 49.3 51.8C50.5 51.1 52.1 50.2 53.3 49.8C54.5 49.4 55.9 49.4 56.4 49.3"/>
+          <path class="s" d="M89.9 82.1C90.8 81.6 93.5 80.2 95.0 79.2C96.6 78.2 98.2 76.9 99.3 75.9C100.3 74.9 101.0 73.9 101.3 73.0C101.7 72.1 101.6 71.2 101.3 70.6C101.1 70.0 100.5 69.7 99.8 69.6C99.2 69.4 98.2 69.4 97.3 69.6C96.4 69.8 95.4 70.1 94.3 70.6C93.1 71.2 91.9 71.7 90.3 72.9C88.7 74.2 85.9 76.7 84.7 78.1C83.4 79.4 83.2 80.1 82.6 81.1C82.1 82.1 81.6 83.2 81.4 84.3C81.2 85.3 81.2 86.5 81.3 87.4C81.4 88.2 81.6 88.8 82.0 89.4C82.3 90.1 82.8 90.6 83.3 91.1C83.9 91.6 84.1 92.0 85.2 92.3C86.3 92.7 88.2 93.3 90.1 93.2C91.9 93.1 94.3 92.6 96.3 91.8C98.3 91.0 100.2 89.9 102.1 88.5C104.1 87.1 105.7 85.8 108.1 83.4C110.6 81.0 115.0 76.3 116.8 74.0C118.7 71.7 120.1 66.5 119.1 69.8C118.0 73.0 109.1 92.4 110.4 93.4C111.7 94.4 122.9 79.8 126.7 75.9C130.6 72.0 132.0 71.4 133.5 70.1C135.1 68.9 135.4 68.7 136.0 68.4C136.6 68.1 136.7 68.2 137.0 68.2C137.3 68.2 137.6 68.0 137.8 68.4C138.0 68.7 139.5 67.2 138.2 70.3C136.9 73.4 129.1 86.0 130.0 87.1C130.9 88.2 140.3 79.3 143.6 77.0C146.8 74.7 147.9 74.3 149.5 73.5C151.1 72.6 153.0 71.6 153.2 72.0C153.4 72.5 151.4 74.3 150.6 76.2C149.8 78.1 148.6 81.4 148.2 83.3C147.8 85.3 147.9 86.8 148.2 88.1C148.5 89.3 149.1 90.1 149.9 90.6C150.7 91.2 151.7 91.5 152.9 91.4C154.1 91.2 155.8 90.6 157.3 89.8C158.7 88.9 160.1 87.8 161.6 86.3C163.2 84.9 165.8 81.9 166.6 81.0"/>
+          <path class="s" d="M182.4 76.6L201.0 76.1"/>
+          <path class="s" d="M203 73C204.5 68.5 208.5 66.5 210.5 70.5C212 76 212.5 86 214.5 93C219 85.5 224 75.5 229 68C230.5 66 233.5 67 233 70.5C236.5 71.5 239.5 70 241 67.5C240 75 237.5 85 238.5 90.5C239.5 95 245 93.5 250 87"/>
+          <path class="s" d="M240.6 56.2C241.3 55.6 242.3 55.8 242.4 56.7C242.5 57.6 241.4 58 240.8 57.4C240.3 57 240.3 56.5 240.6 56.2"/>
+          <path class="s" d="M264.5 69.1C263.1 73.2 254.6 92.4 255.8 93.6C257.0 94.8 267.9 80.3 271.8 76.6C275.6 72.8 276.8 72.4 278.7 71.0C280.6 69.7 282.2 69.0 283.0 68.6C283.9 68.2 283.5 68.4 283.8 68.7C284.1 69.0 285.2 68.7 284.7 70.5C284.1 72.2 281.3 76.9 280.3 79.3C279.3 81.8 278.8 83.8 278.5 85.4C278.2 87.0 278.5 88.1 278.8 89.1C279.0 90.0 279.4 90.6 280.1 91.0C280.9 91.5 281.9 91.9 283.1 91.8C284.4 91.6 285.9 91.2 287.6 90.2C289.3 89.2 291.8 87.0 293.4 85.5C295.0 84.0 296.6 81.8 297.3 81.0"/>
+          <path class="s" d="M324 71.5C317 64.5 301 67.5 299 80C297.5 89.5 304.5 95.5 312 91.5C318 88.5 322.5 81.5 325.7 73L334 40L322.5 86C321.5 93 327 95 333 90.5"/>
+          <path class="s" d="M349 70C343 70 338.5 77.5 339.5 85C340.5 92.5 348.5 94.5 352.5 88C356 82 355.5 72.5 349.5 70.5C352.5 72 357 71.5 361 69C363.5 67.5 366 65.5 368.5 63.5C367.5 69.5 366 74 370.5 78.5C376 84 375.5 92.5 367 94C361.5 95 357.5 92.5 357.5 89"/>
+        </g>
+        <g class="icing" transform="translate(0 0)">
+          <path class="s" d="M21.7 69.1C21.3 68.8 20.1 68.3 19.4 67.4C18.7 66.5 17.9 64.9 17.4 63.7C17.0 62.6 16.8 61.6 16.7 60.6C16.7 59.5 16.8 58.4 17.2 57.4C17.5 56.3 18.0 55.3 18.6 54.3C19.2 53.3 19.9 52.5 20.9 51.5C21.9 50.6 23.2 49.5 24.6 48.6C26.1 47.6 27.8 46.6 29.7 45.6C31.6 44.6 34.0 43.6 36.0 42.8C38.0 42.0 39.6 41.4 41.7 40.8C43.7 40.3 46.1 39.7 48.4 39.3C50.7 38.9 53.2 38.6 55.3 38.4C57.5 38.2 59.3 38.1 61.3 38.1C63.2 38.1 65.4 38.2 67.1 38.4C68.8 38.6 70.3 38.9 71.7 39.5C73.1 40.0 74.4 40.6 75.5 41.5C76.6 42.3 77.5 43.3 78.0 44.4C78.5 45.5 78.8 46.9 78.7 48.1C78.6 49.3 78.1 50.6 77.4 51.7C76.7 52.9 75.6 53.9 74.4 54.8C73.3 55.8 72.0 56.5 70.5 57.2C68.9 58.0 68.5 58.4 65.0 59.2C61.5 60.1 50.0 60.2 49.4 62.4C48.7 64.5 58.6 70.1 61.1 72.3C63.5 74.6 63.2 74.7 64.1 76.0C64.9 77.3 65.6 78.7 66.1 80.1C66.5 81.5 66.8 83.0 66.8 84.4C66.8 85.9 66.5 87.4 66.0 88.7C65.5 90.1 64.8 91.3 63.8 92.6C62.7 93.8 60.9 95.3 59.7 96.1C58.4 97.0 57.5 97.3 56.4 97.7C55.2 98.1 54.0 98.4 52.8 98.5C51.5 98.7 50.3 98.7 49.1 98.6C47.9 98.6 46.7 98.4 45.6 98.0C44.4 97.7 43.4 97.2 42.4 96.6C41.4 96.0 40.7 95.6 39.7 94.5C38.7 93.3 38.4 89.3 36.3 89.6C34.3 89.8 29.0 95.3 27.3 95.9C25.6 96.6 25.4 96.3 26.2 93.4C27.1 90.6 29.4 84.6 32.2 78.7C35.1 72.7 41.2 61.8 43.5 57.7C45.9 53.6 45.5 55.1 46.5 54.1C47.5 53.1 48.2 52.6 49.3 51.8C50.5 51.1 52.1 50.2 53.3 49.8C54.5 49.4 55.9 49.4 56.4 49.3"/>
+          <path class="s" d="M89.9 82.1C90.8 81.6 93.5 80.2 95.0 79.2C96.6 78.2 98.2 76.9 99.3 75.9C100.3 74.9 101.0 73.9 101.3 73.0C101.7 72.1 101.6 71.2 101.3 70.6C101.1 70.0 100.5 69.7 99.8 69.6C99.2 69.4 98.2 69.4 97.3 69.6C96.4 69.8 95.4 70.1 94.3 70.6C93.1 71.2 91.9 71.7 90.3 72.9C88.7 74.2 85.9 76.7 84.7 78.1C83.4 79.4 83.2 80.1 82.6 81.1C82.1 82.1 81.6 83.2 81.4 84.3C81.2 85.3 81.2 86.5 81.3 87.4C81.4 88.2 81.6 88.8 82.0 89.4C82.3 90.1 82.8 90.6 83.3 91.1C83.9 91.6 84.1 92.0 85.2 92.3C86.3 92.7 88.2 93.3 90.1 93.2C91.9 93.1 94.3 92.6 96.3 91.8C98.3 91.0 100.2 89.9 102.1 88.5C104.1 87.1 105.7 85.8 108.1 83.4C110.6 81.0 115.0 76.3 116.8 74.0C118.7 71.7 120.1 66.5 119.1 69.8C118.0 73.0 109.1 92.4 110.4 93.4C111.7 94.4 122.9 79.8 126.7 75.9C130.6 72.0 132.0 71.4 133.5 70.1C135.1 68.9 135.4 68.7 136.0 68.4C136.6 68.1 136.7 68.2 137.0 68.2C137.3 68.2 137.6 68.0 137.8 68.4C138.0 68.7 139.5 67.2 138.2 70.3C136.9 73.4 129.1 86.0 130.0 87.1C130.9 88.2 140.3 79.3 143.6 77.0C146.8 74.7 147.9 74.3 149.5 73.5C151.1 72.6 153.0 71.6 153.2 72.0C153.4 72.5 151.4 74.3 150.6 76.2C149.8 78.1 148.6 81.4 148.2 83.3C147.8 85.3 147.9 86.8 148.2 88.1C148.5 89.3 149.1 90.1 149.9 90.6C150.7 91.2 151.7 91.5 152.9 91.4C154.1 91.2 155.8 90.6 157.3 89.8C158.7 88.9 160.1 87.8 161.6 86.3C163.2 84.9 165.8 81.9 166.6 81.0"/>
+          <path class="s" d="M182.4 76.6L201.0 76.1"/>
+          <path class="s" d="M203 73C204.5 68.5 208.5 66.5 210.5 70.5C212 76 212.5 86 214.5 93C219 85.5 224 75.5 229 68C230.5 66 233.5 67 233 70.5C236.5 71.5 239.5 70 241 67.5C240 75 237.5 85 238.5 90.5C239.5 95 245 93.5 250 87"/>
+          <path class="s" d="M240.6 56.2C241.3 55.6 242.3 55.8 242.4 56.7C242.5 57.6 241.4 58 240.8 57.4C240.3 57 240.3 56.5 240.6 56.2"/>
+          <path class="s" d="M264.5 69.1C263.1 73.2 254.6 92.4 255.8 93.6C257.0 94.8 267.9 80.3 271.8 76.6C275.6 72.8 276.8 72.4 278.7 71.0C280.6 69.7 282.2 69.0 283.0 68.6C283.9 68.2 283.5 68.4 283.8 68.7C284.1 69.0 285.2 68.7 284.7 70.5C284.1 72.2 281.3 76.9 280.3 79.3C279.3 81.8 278.8 83.8 278.5 85.4C278.2 87.0 278.5 88.1 278.8 89.1C279.0 90.0 279.4 90.6 280.1 91.0C280.9 91.5 281.9 91.9 283.1 91.8C284.4 91.6 285.9 91.2 287.6 90.2C289.3 89.2 291.8 87.0 293.4 85.5C295.0 84.0 296.6 81.8 297.3 81.0"/>
+          <path class="s" d="M324 71.5C317 64.5 301 67.5 299 80C297.5 89.5 304.5 95.5 312 91.5C318 88.5 322.5 81.5 325.7 73L334 40L322.5 86C321.5 93 327 95 333 90.5"/>
+          <path class="s" d="M349 70C343 70 338.5 77.5 339.5 85C340.5 92.5 348.5 94.5 352.5 88C356 82 355.5 72.5 349.5 70.5C352.5 72 357 71.5 361 69C363.5 67.5 366 65.5 368.5 63.5C367.5 69.5 366 74 370.5 78.5C376 84 375.5 92.5 367 94C361.5 95 357.5 92.5 357.5 89"/>
+        </g>
+        <g class="gloss" transform="translate(0 -1.3)">
+          <path class="s" d="M21.7 69.1C21.3 68.8 20.1 68.3 19.4 67.4C18.7 66.5 17.9 64.9 17.4 63.7C17.0 62.6 16.8 61.6 16.7 60.6C16.7 59.5 16.8 58.4 17.2 57.4C17.5 56.3 18.0 55.3 18.6 54.3C19.2 53.3 19.9 52.5 20.9 51.5C21.9 50.6 23.2 49.5 24.6 48.6C26.1 47.6 27.8 46.6 29.7 45.6C31.6 44.6 34.0 43.6 36.0 42.8C38.0 42.0 39.6 41.4 41.7 40.8C43.7 40.3 46.1 39.7 48.4 39.3C50.7 38.9 53.2 38.6 55.3 38.4C57.5 38.2 59.3 38.1 61.3 38.1C63.2 38.1 65.4 38.2 67.1 38.4C68.8 38.6 70.3 38.9 71.7 39.5C73.1 40.0 74.4 40.6 75.5 41.5C76.6 42.3 77.5 43.3 78.0 44.4C78.5 45.5 78.8 46.9 78.7 48.1C78.6 49.3 78.1 50.6 77.4 51.7C76.7 52.9 75.6 53.9 74.4 54.8C73.3 55.8 72.0 56.5 70.5 57.2C68.9 58.0 68.5 58.4 65.0 59.2C61.5 60.1 50.0 60.2 49.4 62.4C48.7 64.5 58.6 70.1 61.1 72.3C63.5 74.6 63.2 74.7 64.1 76.0C64.9 77.3 65.6 78.7 66.1 80.1C66.5 81.5 66.8 83.0 66.8 84.4C66.8 85.9 66.5 87.4 66.0 88.7C65.5 90.1 64.8 91.3 63.8 92.6C62.7 93.8 60.9 95.3 59.7 96.1C58.4 97.0 57.5 97.3 56.4 97.7C55.2 98.1 54.0 98.4 52.8 98.5C51.5 98.7 50.3 98.7 49.1 98.6C47.9 98.6 46.7 98.4 45.6 98.0C44.4 97.7 43.4 97.2 42.4 96.6C41.4 96.0 40.7 95.6 39.7 94.5C38.7 93.3 38.4 89.3 36.3 89.6C34.3 89.8 29.0 95.3 27.3 95.9C25.6 96.6 25.4 96.3 26.2 93.4C27.1 90.6 29.4 84.6 32.2 78.7C35.1 72.7 41.2 61.8 43.5 57.7C45.9 53.6 45.5 55.1 46.5 54.1C47.5 53.1 48.2 52.6 49.3 51.8C50.5 51.1 52.1 50.2 53.3 49.8C54.5 49.4 55.9 49.4 56.4 49.3"/>
+          <path class="s" d="M89.9 82.1C90.8 81.6 93.5 80.2 95.0 79.2C96.6 78.2 98.2 76.9 99.3 75.9C100.3 74.9 101.0 73.9 101.3 73.0C101.7 72.1 101.6 71.2 101.3 70.6C101.1 70.0 100.5 69.7 99.8 69.6C99.2 69.4 98.2 69.4 97.3 69.6C96.4 69.8 95.4 70.1 94.3 70.6C93.1 71.2 91.9 71.7 90.3 72.9C88.7 74.2 85.9 76.7 84.7 78.1C83.4 79.4 83.2 80.1 82.6 81.1C82.1 82.1 81.6 83.2 81.4 84.3C81.2 85.3 81.2 86.5 81.3 87.4C81.4 88.2 81.6 88.8 82.0 89.4C82.3 90.1 82.8 90.6 83.3 91.1C83.9 91.6 84.1 92.0 85.2 92.3C86.3 92.7 88.2 93.3 90.1 93.2C91.9 93.1 94.3 92.6 96.3 91.8C98.3 91.0 100.2 89.9 102.1 88.5C104.1 87.1 105.7 85.8 108.1 83.4C110.6 81.0 115.0 76.3 116.8 74.0C118.7 71.7 120.1 66.5 119.1 69.8C118.0 73.0 109.1 92.4 110.4 93.4C111.7 94.4 122.9 79.8 126.7 75.9C130.6 72.0 132.0 71.4 133.5 70.1C135.1 68.9 135.4 68.7 136.0 68.4C136.6 68.1 136.7 68.2 137.0 68.2C137.3 68.2 137.6 68.0 137.8 68.4C138.0 68.7 139.5 67.2 138.2 70.3C136.9 73.4 129.1 86.0 130.0 87.1C130.9 88.2 140.3 79.3 143.6 77.0C146.8 74.7 147.9 74.3 149.5 73.5C151.1 72.6 153.0 71.6 153.2 72.0C153.4 72.5 151.4 74.3 150.6 76.2C149.8 78.1 148.6 81.4 148.2 83.3C147.8 85.3 147.9 86.8 148.2 88.1C148.5 89.3 149.1 90.1 149.9 90.6C150.7 91.2 151.7 91.5 152.9 91.4C154.1 91.2 155.8 90.6 157.3 89.8C158.7 88.9 160.1 87.8 161.6 86.3C163.2 84.9 165.8 81.9 166.6 81.0"/>
+          <path class="s" d="M182.4 76.6L201.0 76.1"/>
+          <path class="s" d="M203 73C204.5 68.5 208.5 66.5 210.5 70.5C212 76 212.5 86 214.5 93C219 85.5 224 75.5 229 68C230.5 66 233.5 67 233 70.5C236.5 71.5 239.5 70 241 67.5C240 75 237.5 85 238.5 90.5C239.5 95 245 93.5 250 87"/>
+          <path class="s" d="M240.6 56.2C241.3 55.6 242.3 55.8 242.4 56.7C242.5 57.6 241.4 58 240.8 57.4C240.3 57 240.3 56.5 240.6 56.2"/>
+          <path class="s" d="M264.5 69.1C263.1 73.2 254.6 92.4 255.8 93.6C257.0 94.8 267.9 80.3 271.8 76.6C275.6 72.8 276.8 72.4 278.7 71.0C280.6 69.7 282.2 69.0 283.0 68.6C283.9 68.2 283.5 68.4 283.8 68.7C284.1 69.0 285.2 68.7 284.7 70.5C284.1 72.2 281.3 76.9 280.3 79.3C279.3 81.8 278.8 83.8 278.5 85.4C278.2 87.0 278.5 88.1 278.8 89.1C279.0 90.0 279.4 90.6 280.1 91.0C280.9 91.5 281.9 91.9 283.1 91.8C284.4 91.6 285.9 91.2 287.6 90.2C289.3 89.2 291.8 87.0 293.4 85.5C295.0 84.0 296.6 81.8 297.3 81.0"/>
+          <path class="s" d="M324 71.5C317 64.5 301 67.5 299 80C297.5 89.5 304.5 95.5 312 91.5C318 88.5 322.5 81.5 325.7 73L334 40L322.5 86C321.5 93 327 95 333 90.5"/>
+          <path class="s" d="M349 70C343 70 338.5 77.5 339.5 85C340.5 92.5 348.5 94.5 352.5 88C356 82 355.5 72.5 349.5 70.5C352.5 72 357 71.5 361 69C363.5 67.5 366 65.5 368.5 63.5C367.5 69.5 366 74 370.5 78.5C376 84 375.5 92.5 367 94C361.5 95 357.5 92.5 357.5 89"/>
+        </g>
+        <g fill="#C98F4A">
+          <path class="sparkle" d="M10 34l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          <path class="sparkle" d="M394 22l2.4 6 6 2.4-6 2.4-2.4 6-2.4-6-6-2.4 6-2.4z"/>
+          <path class="sparkle" d="M370 116l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+        </g>
+        <!-- saco de confeitar: a ponta do bico fica na origem e segue o traço -->
+        <g class="bag" id="bag" aria-hidden="true">
+          <g id="bagtilt">
+            <path d="M-3 -6 L3 -6 L2 0 L-2 0 Z" fill="#B8A88F"/>
+            <path d="M-14 -58 C-16 -40 -8 -14 -4 -6 L4 -6 C8 -14 16 -40 14 -58 C8 -64 -8 -64 -14 -58Z" fill="#FCF6EC" stroke="#5C1324" stroke-width="2"/>
+            <path d="M-12 -52 C-6 -40 -6 -24 -3 -10" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+            <path d="M-15 -60 C-8 -66 8 -66 15 -60 L14 -54 C8 -58 -8 -58 -14 -54Z" fill="#C98F4A"/>
+          </g>
+        </g>
+      </svg>
+
+      <p class="lead reveal" style="animation-delay:2.6s">um docinho resolve mais do que parece</p>
+      <p class="who reveal" style="animation-delay:2.75s"><b>Divinô</b>, brigadeiros e doces artesanais em Parnamirim e Natal, RN</p>
+      <div class="chips reveal" style="animation-delay:2.9s">
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#5C1324" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M9 9.5l.01 0M14 8.5l.01 0M15.5 12.5l.01 0M10.5 13.5l.01 0M12.5 16l.01 0"/><path d="M8 4c1.5 1 6.5 1 8 0" stroke="#C98F4A"/></svg>
+          Feito à mão
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2F4B3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
+          Pra adoçar o dia
+        </span>
+      </div>
+    </section>
+
+    <nav class="links" aria-label="Links da Divinô">
+      <a class="order" style="animation-delay:3.05s" href="https://ig.me/m/divinooficial_" target="_blank" rel="noopener">
+        <span class="halo" aria-hidden="true"></span>
+        <img class="pic p2" src="img/brig-mordido.webp" alt="">
+        <img class="pic p1" src="img/brigadeiro.webp" alt="">
+        <div class="in">
+          <span class="script">Peça aqui</span>
+          <p>Conte a data, a quantidade e os sabores. A gente responde no direct.</p>
+          <span class="btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#5C1324" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C6.5 3 3 6.8 3 11.4c0 2.5 1.1 4.6 3 6.1V21l3.1-1.7c.9.2 1.9.4 2.9.4 5.5 0 9-3.8 9-8.3S17.5 3 12 3z"/><path d="M7.5 13.5l3-3.2 2.4 2 3.6-3.4-3 3.4-2.4-2z" fill="#5C1324"/></svg>
+            Chamar no direct
+          </span>
+        </div>
+      </a>
+
+      <a class="xmas" style="animation-delay:3.2s" href="natal.html">
+        <svg class="lights" viewBox="0 0 400 26" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 4 Q25 16 50 6 T100 6 T150 6 T200 6 T250 6 T300 6 T350 6 T400 6" stroke="#1C3024" stroke-width="1.5" fill="none"/>
+          <g>
+            <circle cx="25" cy="12" r="3.4" fill="#E6BF86"/><circle cx="75" cy="12" r="3.4" fill="#B3303D"/><circle cx="125" cy="12" r="3.4" fill="#F4E8D4"/>
+            <circle cx="175" cy="12" r="3.4" fill="#E6BF86"/><circle cx="225" cy="12" r="3.4" fill="#B3303D"/><circle cx="275" cy="12" r="3.4" fill="#F4E8D4"/>
+            <circle cx="325" cy="12" r="3.4" fill="#E6BF86"/><circle cx="375" cy="12" r="3.4" fill="#B3303D"/>
+          </g>
+        </svg>
+        <img class="ico" src="img/gorro.webp" alt="">
+        <div>
+          <h2>Catálogo de Natal</h2>
+          <p>Doces da temporada pra ceia e pra presentear</p>
+          <span class="soon">Em breve</span>
+        </div>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#2F4B3B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="insta" style="animation-delay:3.35s" href="https://www.instagram.com/divinooficial_/" target="_blank" rel="noopener">
+        <span class="grid" aria-hidden="true">
+          <span style="background:var(--rosa)"><img src="img/brigadeiro.webp" alt="" loading="lazy"></span>
+          <span style="background:var(--bordo)"><img src="img/perfil.webp" alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover"></span>
+          <span style="background:var(--salvia)"><img src="img/presente-laco.webp" alt="" loading="lazy"></span>
+          <span style="background:var(--bege)"><img src="img/cupcake.webp" alt="" loading="lazy"></span>
+        </span>
+        <div>
+          <h2>@divinooficial_</h2>
+          <p>Conheça a Divi, o Nô e os doces</p>
+        </div>
+        <span class="ig" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none"/></svg></span>
+      </a>
+    </nav>
+
+    <section class="showcase reveal" id="showcase" style="animation-delay:3.5s" aria-labelledby="vitrine">
+      <header>
+        <h2 id="vitrine">Vitrine</h2>
+        <div class="controls">
+          <button class="round" id="prev" type="button" aria-label="Doce anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button class="round" id="next" type="button" aria-label="Próximo doce"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+          <button class="all" id="all" type="button" aria-pressed="false">Ver todos</button>
+        </div>
+      </header>
+      <p class="hint">Arraste para o lado. Gostou? Chama no direct.</p>
+      <div class="shelf" id="shelf"></div>
+      <div class="dots" id="dots"></div>
+    </section>
+
+    <footer>
+      <span class="word" id="word" aria-label="Divinô"></span>
+      <span class="script">um docinho resolve mais do que parece</span>
+      Parnamirim e Natal, RN
+    </footer>
+  </main>
+
+<script src="lettering.js"></script>
+<script>
+  const DM = 'https://ig.me/m/divinooficial_';
+
+  // ---------- hero: toca uma vez a cada carregamento e fica parado na pose final ----------
+  (() => {
+    const img = document.getElementById('heroImg');
+    const FINAL = 'img/hero-final.webp';
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) { img.src = FINAL; return; }
+    let done = false;
+    // internet lenta: em vez de esperar, mostra direto a pose final
+    const slow = setTimeout(() => { done = true; img.src = FINAL; }, 2500);
+    const anim = new Image();
+    anim.onload = () => {
+      if (done) return;
+      clearTimeout(slow);
+      img.src = anim.src;
+      // o WebP toca uma vez (3,6 s); depois fica a imagem parada, igual ao último quadro
+      setTimeout(() => { img.src = FINAL; }, 3900);
+    };
+    anim.onerror = () => { clearTimeout(slow); img.src = FINAL; };
+    anim.src = 'img/hero-animacao.webp';
+  })();
+
+  // ---------- logo no rodapé ----------
+  if (window.LETTERING_SVG) document.getElementById('word').innerHTML = window.LETTERING_SVG;
+
+  // ---------- vitrine ----------
+  const treats = [
+    ['brigadeiro','Brigadeiros','O clássico, enroladinho na hora certa.','#E9C9C3'],
+    ['brig-mordido','Brigadeiros gourmet','Sabores especiais pra quem quer variar.','#E3CFAE'],
+    ['cupcake','Cupcakes','Fofinhos, com cobertura caprichada.','#C9D0B4'],
+    ['presente-laco','Mimos pra presentear','Caixinhas pra lembrar de alguém.','#9AA27E'],
+    ['coracao','Doces pra datas especiais','Aniversário, chá, festa ou só porque sim.','#F1D6CF'],
+    ['estrela-biscoito','Doces de Natal','Linha da temporada chegando em breve.','#2F4B3B'],
+  ];
+  const shelf = document.getElementById('shelf'), dots = document.getElementById('dots');
+  const showcase = document.getElementById('showcase');
+  const prev = document.getElementById('prev'), next = document.getElementById('next'), all = document.getElementById('all');
+  treats.forEach(([f, name, desc, c], i) => {
+    shelf.insertAdjacentHTML('beforeend', `
+      <figure class="treat" style="animation-delay:${i * 60}ms">
+        <div class="art" style="--c:${c}"><img src="img/${f}.webp" alt="" loading="lazy" draggable="false"></div>
+        <figcaption class="row"><b>${name}</b><small>${desc}</small>
+          <a href="${DM}" target="_blank" rel="noopener">Quero esse</a>
+        </figcaption>
+      </figure>`);
+    dots.insertAdjacentHTML('beforeend', `<button type="button" aria-label="Ver doce ${i + 1}"></button>`);
+  });
+  const items = [...shelf.children], dotEls = [...dots.children];
+
+  const step = () => items[0].getBoundingClientRect().width + 12;
+  const maxLeft = () => shelf.scrollWidth - shelf.clientWidth;
+  const current = () => shelf.scrollLeft >= maxLeft() - 4 ? items.length - 1 : Math.round(shelf.scrollLeft / step());
+  const goTo = i => {
+    const k = Math.max(0, Math.min(items.length - 1, i)), left = k === items.length - 1 ? maxLeft() : Math.min(maxLeft(), k * step()), from = shelf.scrollLeft;
+    shelf.scrollTo({left, behavior: 'smooth'});
+    setTimeout(() => { if (Math.abs(shelf.scrollLeft - from) < 2 && Math.abs(left - from) > 2) { shelf.style.scrollBehavior = 'auto'; shelf.scrollLeft = left; shelf.style.scrollBehavior = ''; sync(); } }, 450);
+  };
+  const sync = () => {
+    const i = current();
+    dotEls.forEach((d, k) => d.classList.toggle('on', k === i));
+    prev.disabled = shelf.scrollLeft < 4;
+    next.disabled = shelf.scrollLeft + shelf.clientWidth >= shelf.scrollWidth - 4;
+  };
+  shelf.addEventListener('scroll', () => requestAnimationFrame(sync), {passive: true});
+  prev.onclick = () => goTo(current() - 1);
+  next.onclick = () => goTo(current() + 1);
+  dotEls.forEach((d, k) => d.onclick = () => goTo(k));
+  sync();
+
+  let down = false, startX = 0, startLeft = 0, moved = 0;
+  shelf.addEventListener('pointerdown', e => {
+    if (e.pointerType !== 'mouse' || shelf.classList.contains('grid')) return;
+    down = true; moved = 0; startX = e.clientX; startLeft = shelf.scrollLeft;
+  });
+  window.addEventListener('pointermove', e => {
+    if (!down) return;
+    const dx = e.clientX - startX; moved = Math.abs(dx);
+    if (moved > 4) shelf.classList.add('dragging');
+    shelf.scrollLeft = startLeft - dx;
+  });
+  window.addEventListener('pointerup', () => {
+    if (!down) return; down = false;
+    if (shelf.classList.contains('dragging')) {
+      shelf.classList.remove('dragging');
+      const raw = shelf.scrollLeft / step(), dir = shelf.scrollLeft - startLeft;
+      goTo(shelf.scrollLeft >= maxLeft() - 4 ? items.length - 1 : dir > 0 ? Math.ceil(raw - .15) : Math.floor(raw + .15));
+    }
+  });
+  shelf.addEventListener('click', e => { if (moved > 4) { e.preventDefault(); moved = 0; } }, true);
+
+  all.onclick = () => {
+    const grid = shelf.classList.toggle('grid');
+    showcase.classList.toggle('is-grid', grid);
+    all.textContent = grid ? 'Ver carrossel' : 'Ver todos';
+    all.setAttribute('aria-pressed', grid);
+    document.querySelector('.hint').textContent = grid ? 'Todos os doces da vitrine. Chama no direct.' : 'Arraste para o lado. Gostou? Chama no direct.';
+    if (!grid) { shelf.scrollLeft = 0; sync(); }
+  };
+
+  // ---------- Bem-vindos confeitado: o bico segue o traço de cada letra ----------
+  (() => {
+    const svg = document.getElementById('piping'), bag = document.getElementById('bag'), tilt = document.getElementById('bagtilt');
+    const layers = ['.shadow', '.icing', '.gloss'].map(c => [...svg.querySelectorAll(c + ' path')]);
+    const strokes = layers[1].map((p, i) => ({ i, len: p.getTotalLength(), el: p }));
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const setDash = (i, drawn) => layers.forEach(l => { const p = l[i], L = strokes[i].len; p.style.strokeDasharray = L + ' ' + (L + 2); p.style.strokeDashoffset = L - drawn; });
+    if (reduce) { svg.classList.add('done'); return; }
+    strokes.forEach(s => setDash(s.i, 0));
+    const SPEED = strokes.reduce((a, s) => a + s.len, 0) / 2.3;
+    const HOP = 0.12;
+    const START = 2450;         // começa quando a Divi e o Nô estão chegando no D
+    const timeline = []; let t = 0;
+    strokes.forEach((s, k) => { if (k) { timeline.push({ hop: true, from: k - 1, to: k, t0: t, t1: t + HOP }); t += HOP; }
+      timeline.push({ i: k, t0: t, t1: t + s.len / SPEED }); t += s.len / SPEED; });
+    const total = t;
+    const at = (i, d) => strokes[i].el.getPointAtLength(Math.max(0, Math.min(strokes[i].len, d)));
+    const place = (pt, ang) => bag.setAttribute('transform', `translate(${pt.x.toFixed(2)} ${pt.y.toFixed(2)})`) || tilt.setAttribute('transform', `rotate(${ang.toFixed(1)})`);
+    let t0;
+    const frame = now => {
+      if (!t0) t0 = now;
+      const e = (now - t0) / 1000;
+      let lastPt = null;
+      for (const seg of timeline) {
+        if (seg.hop) {
+          if (e >= seg.t0 && e < seg.t1) {
+            const a = at(seg.from, strokes[seg.from].len), b = at(seg.to, 0), k = (e - seg.t0) / HOP;
+            lastPt = { x: a.x + (b.x - a.x) * k, y: a.y + (b.y - a.y) * k - Math.sin(k * Math.PI) * 10 };
+          }
+          continue;
+        }
+        const drawn = Math.max(0, Math.min(strokes[seg.i].len, (e - seg.t0) * SPEED));
+        setDash(seg.i, drawn);
+        if (e >= seg.t0 && e < seg.t1) lastPt = at(seg.i, drawn);
+      }
+      if (lastPt) place(lastPt, -34 + Math.sin(e * 9) * 4);
+      if (e < total) requestAnimationFrame(frame);
+      else {
+        strokes.forEach(s => setDash(s.i, s.len));
+        bag.classList.add('off'); bag.setAttribute('transform', bag.getAttribute('transform') + ' translate(30 -40)');
+        svg.classList.add('done');
+      }
+    };
+    setTimeout(() => { place(at(0, 0), -34); bag.classList.add('on'); requestAnimationFrame(frame); }, START);
+  })();
+</script>
+</body>
+</html>
