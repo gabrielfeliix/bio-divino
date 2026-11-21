@@ -80,7 +80,7 @@
   .card .c2{right:-12px;top:-26px;transform:rotate(12deg)}
 
   .item{margin-top:16px;border-radius:20px;overflow:hidden;background:var(--creme-claro);box-shadow:0 14px 26px -18px rgba(0,0,0,.55);text-align:left}
-  .item img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .item video{display:block;width:100%;height:auto;aspect-ratio:4/5;background:var(--creme-claro)}
   .item figcaption{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
   .item b{font-family:var(--logo);font-weight:800;font-size:1.35rem;line-height:1.05;color:var(--bordo)}
   .item figcaption span:last-child{font-size:.92rem;color:var(--cacau)}
@@ -135,14 +135,14 @@
       <span class="tag">Doces da temporada</span>
       <h1>Catálogo de Natal</h1>
       <figure class="item">
-        <img src="img/chocotone.webp" width="720" height="720" alt="Chocotone coberto de chocolate com três brigadeiros por cima">
+        <video src="img/chocotone.mp4" poster="img/chocotone-poster.webp" width="720" height="900" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo do chocotone coberto de chocolate com três brigadeiros por cima"></video>
         <figcaption>
           <span class="new-tag">Já disponível</span>
           <b>Chocotone com brigadeiro</b>
           <span>Cobertura de chocolate e brigadeiros por cima. Consulte o valor no WhatsApp.</span>
         </figcaption>
       </figure>
-      <a class="cta" href="https://wa.me/5595981103054?text=Ol%C3%A1!%20Quero%20encomendar%20o%20Chocotone%20com%20brigadeiro%20%F0%9F%8D%AB" target="_blank" rel="noopener">
+      <a class="cta" href="https://api.whatsapp.com/send?phone=5595981103054&text=Ol%C3%A1!%20Quero%20encomendar%20o%20Chocotone%20com%20brigadeiro%20%F0%9F%8D%AB" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.3z"/></svg>
         Pedir no WhatsApp
       </a>

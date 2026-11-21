@@ -23,7 +23,7 @@
     --logo:'Sansita Swashed', Georgia, serif;
     --script:'Yellowtail', cursive;
     --sans:'Fredoka', system-ui, sans-serif;
-    --wa:'https://wa.me/5595981103054';
+    --wa:'https://api.whatsapp.com/send?phone=5595981103054';
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{-webkit-text-size-adjust:100%}
@@ -273,7 +273,7 @@
     </section>
 
     <nav class="links" aria-label="Links da Divinô">
-      <a class="order" style="animation-delay:3.05s" href="https://wa.me/5595981103054?text=Ol%C3%A1!%20Vim%20pela%20bio%20da%20Divin%C3%B4%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8D%AB" target="_blank" rel="noopener">
+      <a class="order" style="animation-delay:3.05s" href="https://api.whatsapp.com/send?phone=5595981103054&text=Ol%C3%A1!%20Vim%20pela%20bio%20da%20Divin%C3%B4%20e%20quero%20fazer%20um%20pedido%20%F0%9F%8D%AB" target="_blank" rel="noopener">
         <span class="halo" aria-hidden="true"></span>
         <img class="pic p2" src="img/brig-mordido.webp" alt="">
         <img class="pic p1" src="img/brigadeiro.webp" alt="">
@@ -287,7 +287,7 @@
         </div>
       </a>
 
-      <a class="new" style="animation-delay:3.12s" href="https://wa.me/5595981103054?text=Ol%C3%A1!%20Quero%20encomendar%20o%20Chocotone%20com%20brigadeiro%20%F0%9F%8D%AB" target="_blank" rel="noopener">
+      <a class="new" style="animation-delay:3.12s" href="https://api.whatsapp.com/send?phone=5595981103054&text=Ol%C3%A1!%20Quero%20encomendar%20o%20Chocotone%20com%20brigadeiro%20%F0%9F%8D%AB" target="_blank" rel="noopener">
         <img class="photo" src="img/chocotone.webp" width="720" height="720" alt="Chocotone coberto de chocolate com três brigadeiros por cima">
         <div class="in">
           <span class="tag">Novidade de Natal</span>
@@ -330,6 +330,7 @@
       </a>
     </nav>
 
+    <!-- VITRINE escondida por enquanto (a pedido do Felix, 2026-11-21). Para voltar, tire este comentário e o do script da vitrine.
     <section class="showcase reveal" id="showcase" style="animation-delay:3.5s" aria-labelledby="vitrine">
       <header>
         <h2 id="vitrine">Vitrine</h2>
@@ -343,6 +344,7 @@
       <div class="shelf" id="shelf"></div>
       <div class="dots" id="dots"></div>
     </section>
+    -->
 
     <footer>
       <span class="word" id="word" aria-label="Divinô"></span>
@@ -353,8 +355,9 @@
 
 <script src="lettering.js"></script>
 <script>
-  const WA = 'https://wa.me/5595981103054';
-  const pedir = nome => WA + '?text=' + encodeURIComponent('Olá! Vim pela bio da Divinô e quero saber sobre: ' + nome);
+  // api.whatsapp.com direto: o wa.me redireciona e troca os emojis por "�"
+  const WA = 'https://api.whatsapp.com/send?phone=5595981103054';
+  const pedir = nome => WA + '&text=' + encodeURIComponent('Olá! Vim pela bio da Divinô e quero saber sobre: ' + nome);
 
   // ---------- hero: toca uma vez a cada carregamento e fica parado na pose final ----------
   (() => {
@@ -384,6 +387,7 @@
   // ---------- logo no rodapé ----------
   if (window.LETTERING_SVG) document.getElementById('word').innerHTML = window.LETTERING_SVG;
 
+  /* VITRINE escondida por enquanto: tire este comentário junto com o do HTML para voltar.
   // ---------- vitrine ----------
   const treats = [
     ['chocotone','Chocotone com brigadeiro','Novidade de Natal. Consulte o valor no WhatsApp.','#E3CFAE','foto'],
@@ -458,6 +462,8 @@
     document.querySelector('.hint').textContent = grid ? 'Todos os doces da vitrine. Chama no WhatsApp.' : 'Arraste para o lado. Gostou? Chama no WhatsApp.';
     if (!grid) { shelf.scrollLeft = 0; sync(); }
   };
+
+  */
 
   // ---------- Bem-vindos confeitado: o bico segue o traço de cada letra ----------
   (() => {
