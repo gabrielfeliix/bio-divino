@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Catálogo de Natal | Divinô</title>
-<meta name="description" content="Catálogo de Natal da Divinô: doces da temporada para a ceia e para presentear. Em breve.">
+<meta name="description" content="Catálogo de Natal da Divinô: doces da temporada para a ceia e para presentear. Chocotone com brigadeiro já disponível.">
 <meta name="theme-color" content="#4A0F1D">
 <meta property="og:title" content="Catálogo de Natal | Divinô">
-<meta property="og:description" content="Doces da temporada para a ceia e para presentear. Em breve.">
+<meta property="og:description" content="Doces da temporada para a ceia e para presentear. Chocotone com brigadeiro já disponível.">
 <meta property="og:image" content="img/hero-final.png">
 <link rel="icon" href="img/perfil.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,6 +79,14 @@
   .card .c1{left:-14px;top:-22px;transform:rotate(-14deg)}
   .card .c2{right:-12px;top:-26px;transform:rotate(12deg)}
 
+  .item{margin-top:16px;border-radius:20px;overflow:hidden;background:var(--creme-claro);box-shadow:0 14px 26px -18px rgba(0,0,0,.55);text-align:left}
+  .item img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+  .item figcaption{padding:12px 14px 14px;display:flex;flex-direction:column;gap:4px}
+  .item b{font-family:var(--logo);font-weight:800;font-size:1.35rem;line-height:1.05;color:var(--bordo)}
+  .item figcaption span:last-child{font-size:.92rem;color:var(--cacau)}
+  .new-tag{align-self:flex-start;padding:3px 9px;border-radius:999px;background:var(--cereja);color:var(--creme);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+  .card .more{font-size:.88rem;opacity:.85}
+
   .peek{display:flex;justify-content:center;gap:10px;margin-top:22px;animation:up .7s .8s both}
   .peek span{width:58px;height:58px;border-radius:16px;background:rgba(244,232,212,.08);border:1px dashed rgba(244,232,212,.25);display:grid;place-items:center}
   .peek img{width:40px;height:40px;object-fit:contain;filter:blur(1.5px) saturate(.8);opacity:.75}
@@ -126,12 +134,19 @@
       <img class="corner c2" src="img/estrela-biscoito.webp" alt="">
       <span class="tag">Doces da temporada</span>
       <h1>Catálogo de Natal</h1>
-      <div class="soon" aria-label="Em breve">Em breve<span class="d">.</span><span class="d">.</span><span class="d">.</span></div>
-      <p>A Divi e o Nô estão na cozinha preparando os doces de Natal. Quer garantir os seus? Chama a gente no direct.</p>
-      <a class="cta" href="https://ig.me/m/divinooficial_" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3C6.5 3 3 6.8 3 11.4c0 2.5 1.1 4.6 3 6.1V21l3.1-1.7c.9.2 1.9.4 2.9.4 5.5 0 9-3.8 9-8.3S17.5 3 12 3z"/></svg>
-        Quero ser avisado
+      <figure class="item">
+        <img src="img/chocotone.webp" width="720" height="720" alt="Chocotone coberto de chocolate com três brigadeiros por cima">
+        <figcaption>
+          <span class="new-tag">Já disponível</span>
+          <b>Chocotone com brigadeiro</b>
+          <span>Cobertura de chocolate e brigadeiros por cima. Consulte o valor no WhatsApp.</span>
+        </figcaption>
+      </figure>
+      <a class="cta" href="https://wa.me/5595981103054?text=Ol%C3%A1!%20Quero%20encomendar%20o%20Chocotone%20com%20brigadeiro%20%F0%9F%8D%AB" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.3z"/></svg>
+        Pedir no WhatsApp
       </a>
+      <p class="more">A Divi e o Nô seguem na cozinha: outros doces de Natal chegam em breve.</p>
     </section>
 
     <div class="peek" aria-hidden="true">
