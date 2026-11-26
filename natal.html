@@ -85,6 +85,7 @@
   .item b{font-family:var(--logo);font-weight:800;font-size:1.35rem;line-height:1.05;color:var(--bordo)}
   .item figcaption span:last-child{font-size:.92rem;color:var(--cacau)}
   .item .price{display:flex;align-items:baseline;gap:4px;font-family:var(--logo);font-weight:800;font-size:1.9rem;line-height:1;color:var(--cereja);margin:2px 0}
+  .item .old{font-size:.85rem;font-weight:600;color:var(--cacau);opacity:.75;text-decoration:line-through;text-decoration-thickness:1.5px;margin:2px 0 -8px}
   .item .price small{font-size:.5em;letter-spacing:.02em}
   .new-tag{align-self:flex-start;padding:3px 9px;border-radius:999px;background:var(--cereja);color:var(--creme);font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
   .card .more{font-size:.88rem;opacity:.85}
@@ -141,7 +142,8 @@
         <figcaption>
           <span class="new-tag">Já disponível</span>
           <b>Chocotone com brigadeiro</b>
-          <span class="price" aria-label="74 reais e 99 centavos"><small>R$</small>74,99</span>
+          <s class="old" aria-label="de 89 reais e 99 centavos">R$ 89,99</s>
+          <span class="price" aria-label="por 74 reais e 99 centavos"><small>R$</small>74,99</span>
           <span>Cobertura de chocolate e brigadeiros por cima. Peça o seu no WhatsApp.</span>
         </figcaption>
       </figure>
